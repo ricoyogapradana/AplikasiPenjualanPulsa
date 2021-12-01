@@ -1,7 +1,11 @@
 <?php include 'template/head.php'; ?>
+<?php include 'template/navbar.php'; ?>
+<br>
     <div class="container">
         <div class="row mt-4">
-            <div class="col-md-4"></div>
+            <div class="col-md-8">
+            <?php echo $carausel; ?>
+            </div>
             <div class="col-md-4">
                 <div class="card container">
                     <form>
@@ -40,19 +44,18 @@
                                 </script>
                             </div>
                             <div class="col-md-6">
-                              <button type="submit" class="btn btn-block" style="color: white; background-color: palevioletred;">Login</button>
+                              <button type="submit" class="btn btn-block" style="color: white; background-color: <?php echo $primary_color; ?>;">Login</button>
                             </div>
                         </div>
                           <hr>
                         <div class="row mb-4">
                             <div class="col-md-12">
-                                Belum punya akun ? <a href="" data-toggle="modal" data-target="#staticBackdrop" style="color: palevioletred;">Daftar Sekarang</a>
+                                Belum punya akun ? <a href="" data-toggle="modal" data-target="#staticBackdrop" style="color: <?php echo $primary_color; ?>;">Daftar Sekarang</a>
                             </div>
                         </div>
                       </form>
                 </div>
             </div>
-            <div class="col-md-4"></div>
         </div>
       
       <!-- Modal Register -->
@@ -60,7 +63,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel" style="color: palevioletred;"><b>Registrasi Akun</b></h5>
+              <h5 class="modal-title" id="staticBackdropLabel" style="color: <?php echo $primary_color; ?>;"><b>Registrasi Akun</b></h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -105,7 +108,7 @@
                       <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
                         <label class="form-check-label" for="invalidCheck">
-                          Agree to <a href="terms-condition.html" style="color: palevioletred;">terms</a> and <a href="terms-condition.html" style="color: palevioletred;">conditions</a>
+                          Agree to <a href="terms-condition.php" style="color: <?php echo $primary_color; ?>;">terms</a> and <a href="terms-condition.php" style="color: <?php echo $primary_color; ?>;">conditions</a>
                         </label>
                         <div class="invalid-feedback">
                           You must agree before submitting.
@@ -114,7 +117,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn"  style="color: white; background-color: palevioletred;">Register</button>
+                        <button type="submit" class="btn"  style="color: white; background-color: <?php echo $primary_color; ?>;">Register</button>
                       </div>
                   </form>
             </div>
@@ -146,4 +149,4 @@
       })();
       </script>
 
-<?php include 'template/footer.php'; ?>
+<?php include 'template/foot.php'; ?>

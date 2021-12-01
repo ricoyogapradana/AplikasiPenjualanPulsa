@@ -1,47 +1,12 @@
 <?php include 'template/head.php'; ?>
 <?php include 'template/navbar.php'; ?>
 
-      <div id="carouselExampleCaptions" class="carousel slide mt-4" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-              <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner" style="height: 500px;">
-              <div class="carousel-item active" style="height: 500px;">
-                <img src="img/1.png" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>First slide label</h5>
-                  <p>Some representative placeholder content for the first slide.</p>
-                </div>
-              </div>
-              <div class="carousel-item" style="height: 500px;">
-                <img src="img/2.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Second slide label</h5>
-                  <p>Some representative placeholder content for the second slide.</p>
-                </div>
-              </div>
-              <div class="carousel-item" style="height: 500px;">
-                <img src="img/3.png" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Third slide label</h5>
-                  <p>Some representative placeholder content for the third slide.</p>
-                </div>
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-target="#carouselExampleCaptions" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-target="#carouselExampleCaptions" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </button>
-          </div>
+      <div class="" style="height:70%">
+        <?php echo $carausel; ?>
       </div>
+
       <div class="container mt-4">
-        <h2 class="text-center" style="color: palevioletred;"><b>PROMO HARI INI</b></h2>
+        <h2 class="text-center" style="color: <?php echo $primary_color; ?>;"><b>PROMO HARI INI</b></h2>
         <hr>
         <div class="row">
           <div class="col-md-4 mt-2">
@@ -52,7 +17,7 @@
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <strike>250.000 </strike>
                 <h4><b> <label>Rp</label> 10.000</b></h4>
-                <a href="#" class="btn" style="background-color: palevioletred; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
+                <?php echo $button_beli; ?>
               </div>
             </div>
           </div>
@@ -64,7 +29,7 @@
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <strike>250.000 </strike>
                 <h4><b> <label>Rp</label> 10.000</b></h4>
-                <a href="#" class="btn" style="background-color: palevioletred; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
+                <?php echo $button_beli; ?>
               </div>
             </div>
           </div>
@@ -76,7 +41,7 @@
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <strike>250.000 </strike>
                 <h4><b> <label>Rp</label> 10.000</b></h4>
-                <a href="#" class="btn" style="background-color: palevioletred; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
+                <?php echo $button_beli; ?>
               </div>
             </div>
           </div>
@@ -84,17 +49,17 @@
         <hr>
 
         <!-- ETALASE -->
-        <h2 class="text-center" style="color: palevioletred;"><b>ETALASE</b></h2>
+        <h2 class="text-center" style="color: <?php echo $primary_color; ?>;"><b>ETALASE</b></h2>
         <hr>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">
-            <a class="nav-link active" id="smartfren-tab" data-toggle="tab" href="#smartfren" role="tab" aria-controls="smartfren" aria-selected="true" style="color: palevioletred;">Smartfren</a>
+            <a class="nav-link active" id="smartfren-tab" data-toggle="tab" href="#smartfren" role="tab" aria-controls="smartfren" aria-selected="true" style="color: <?php echo $primary_color; ?>;">Smartfren</a>
           </li>
           <li class="nav-item" role="presentation">
-            <a class="nav-link" id="telkomsel-tab" data-toggle="tab" href="#telkomsel" role="tab" aria-controls="telkomsel" aria-selected="false" style="color: palevioletred;">Telkomsel</a>
+            <a class="nav-link" id="telkomsel-tab" data-toggle="tab" href="#telkomsel" role="tab" aria-controls="telkomsel" aria-selected="false" style="color: <?php echo $primary_color; ?>;">Telkomsel</a>
           </li>
           <li class="nav-item" role="presentation">
-            <a class="nav-link" id="xl-tab" data-toggle="tab" href="#xl" role="tab" aria-controls="xl" aria-selected="false" style="color: palevioletred;">XL</a>
+            <a class="nav-link" id="xl-tab" data-toggle="tab" href="#xl" role="tab" aria-controls="xl" aria-selected="false" style="color: <?php echo $primary_color; ?>;">XL</a>
           </li>
         </ul>
         <div class="tab-content mt-1" id="myTabContent">
@@ -108,7 +73,7 @@
                     <h5 class="card-title"><span class="badge badge-success">PULSA</span><b> Smartfren</b></h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <h4><b> <label>Rp</label> 50.000</b></h4>
-                    <a href="#" class="btn" style="background-color: palevioletred; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
+                    <?php echo $button_beli; ?>
                   </div>
                 </div>
               </div>
@@ -119,7 +84,7 @@
                     <h5 class="card-title"><span class="badge badge-success">PULSA</span><b> Smartfren</b></h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <h4><b> <label>Rp</label> 80.000</b></h4>
-                    <a href="#" class="btn" style="background-color: palevioletred; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
+                    <?php echo $button_beli; ?>
                   </div>
                 </div>
               </div>
@@ -130,7 +95,7 @@
                     <h5 class="card-title"><span class="badge badge-success">PULSA</span><b> Smartfren</b></h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <h4><b> <label>Rp</label> 150.000</b></h4>
-                    <a href="#" class="btn" style="background-color: palevioletred; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
+                    <?php echo $button_beli; ?>
                   </div>
                 </div>
               </div>
@@ -144,7 +109,7 @@
                     <h5 class="card-title"><span class="badge badge-info">KUOTA</span><b> Smartfren</b></h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <h4><b> <label>Rp</label> 40.000</b></h4>
-                    <a href="#" class="btn" style="background-color: palevioletred; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
+                    <?php echo $button_beli; ?>
                   </div>
                 </div>
               </div>
@@ -155,7 +120,7 @@
                     <h5 class="card-title"><span class="badge badge-info">KUOTA</span><b> Smartfren</b></h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <h4><b> <label>Rp</label> 90.000</b></h4>
-                    <a href="#" class="btn" style="background-color: palevioletred; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
+                    <?php echo $button_beli; ?>
                   </div>
                 </div>
               </div>
@@ -166,7 +131,7 @@
                     <h5 class="card-title"><span class="badge badge-info">KUOTA</span><b> Smartfren</b></h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <h4><b> <label>Rp</label> 250.000</b></h4>
-                    <a href="#" class="btn" style="background-color: palevioletred; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
+                    <?php echo $button_beli; ?>
                   </div>
                 </div>
               </div>
@@ -183,7 +148,7 @@
                     <h5 class="card-title"><span class="badge badge-success">PULSA</span><b> Telkomsel</b></h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <h4><b> <label>Rp</label> 50.000</b></h4>
-                    <a href="#" class="btn" style="background-color: palevioletred; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
+                    <?php echo $button_beli; ?>
                   </div>
                 </div>
               </div>
@@ -194,7 +159,7 @@
                     <h5 class="card-title"><span class="badge badge-success">PULSA</span><b> Telkomsel</b></h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <h4><b> <label>Rp</label> 80.000</b></h4>
-                    <a href="#" class="btn" style="background-color: palevioletred; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
+                    <?php echo $button_beli; ?>
                   </div>
                 </div>
               </div>
@@ -205,7 +170,7 @@
                     <h5 class="card-title"><span class="badge badge-success">PULSA</span><b> Telkomsel</b></h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <h4><b> <label>Rp</label> 150.000</b></h4>
-                    <a href="#" class="btn" style="background-color: palevioletred; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
+                    <?php echo $button_beli; ?>
                   </div>
                 </div>
               </div>
@@ -219,7 +184,7 @@
                     <h5 class="card-title"><span class="badge badge-info">KUOTA</span><b> Telkomsel</b></h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <h4><b> <label>Rp</label> 40.000</b></h4>
-                    <a href="#" class="btn" style="background-color: palevioletred; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
+                    <?php echo $button_beli; ?>
                   </div>
                 </div>
               </div>
@@ -230,7 +195,7 @@
                     <h5 class="card-title"><span class="badge badge-info">KUOTA</span><b> Telkomsel</b></h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <h4><b> <label>Rp</label> 90.000</b></h4>
-                    <a href="#" class="btn" style="background-color: palevioletred; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
+                    <?php echo $button_beli; ?>
                   </div>
                 </div>
               </div>
@@ -241,7 +206,7 @@
                     <h5 class="card-title"><span class="badge badge-info">KUOTA</span><b> Telkomsel</b></h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <h4><b> <label>Rp</label> 250.000</b></h4>
-                    <a href="#" class="btn" style="background-color: palevioletred; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
+                    <?php echo $button_beli; ?>
                   </div>
                 </div>
               </div>
@@ -258,7 +223,7 @@
                     <h5 class="card-title"><span class="badge badge-success">PULSA</span><b> XL</b></h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <h4><b> <label>Rp</label> 50.000</b></h4>
-                    <a href="#" class="btn" style="background-color: palevioletred; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
+                    <?php echo $button_beli; ?>
                   </div>
                 </div>
               </div>
@@ -269,7 +234,7 @@
                     <h5 class="card-title"><span class="badge badge-success">PULSA</span><b> XL</b></h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <h4><b> <label>Rp</label> 80.000</b></h4>
-                    <a href="#" class="btn" style="background-color: palevioletred; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
+                    <?php echo $button_beli; ?>
                   </div>
                 </div>
               </div>
@@ -280,7 +245,7 @@
                     <h5 class="card-title"><span class="badge badge-success">PULSA</span><b> XL</b></h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <h4><b> <label>Rp</label> 150.000</b></h4>
-                    <a href="#" class="btn" style="background-color: palevioletred; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
+                    <?php echo $button_beli; ?>
                   </div>
                 </div>
               </div>
@@ -294,7 +259,7 @@
                     <h5 class="card-title"><span class="badge badge-info">KUOTA</span><b> XL</b></h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <h4><b> <label>Rp</label> 40.000</b></h4>
-                    <a href="#" class="btn" style="background-color: palevioletred; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
+                    <?php echo $button_beli; ?>
                   </div>
                 </div>
               </div>
@@ -305,7 +270,7 @@
                     <h5 class="card-title"><span class="badge badge-info">KUOTA</span><b> XL</b></h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <h4><b> <label>Rp</label> 90.000</b></h4>
-                    <a href="#" class="btn" style="background-color: palevioletred; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
+                    <?php echo $button_beli; ?>
                   </div>
                 </div>
               </div>
@@ -316,7 +281,7 @@
                     <h5 class="card-title"><span class="badge badge-info">KUOTA</span><b> XL</b></h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <h4><b> <label>Rp</label> 250.000</b></h4>
-                    <a href="#" class="btn" style="background-color: palevioletred; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
+                    <?php echo $button_beli; ?>
                   </div>
                 </div>
               </div>
@@ -330,4 +295,5 @@
       </div>
 
     <!-- FOOTER -->
-<?php include 'template/footer.php';
+<?php include 'template/footer.php'; ?>
+<?php include 'template/foot.php'; ?>

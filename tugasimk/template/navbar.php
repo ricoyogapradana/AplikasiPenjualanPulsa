@@ -1,6 +1,6 @@
 <?php include 'head.php'; ?>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #d87093;">
-      <a class="navbar-brand" href="#">Navbar</a>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: <?php echo $primary_color; ?>;">
+      <a class="navbar-brand" href="index.php">Navbar</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -18,7 +18,7 @@
           </li> -->
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <a href="login.html" class="btn my-2 my-sm-0" style="background-color: white; color: palevioletred;"><b>Login</b></a>
+          <a href="login.php" class="btn my-2 my-sm-0" style="background-color: white; color: <?php echo $primary_color; ?>;"><b>Login</b></a>
         </form>
       </div>
     </nav><br>
