@@ -1,4 +1,7 @@
-<?php include 'configuration.php'; ?>
+<?php 
+include 'configuration.php'; 
+include 'card_product_home.php';
+?>
 <!doctype html>
 <html lang="en">
   <head>

@@ -1,12 +1,28 @@
-<?php include 'template/head.php'; ?>
-<?php include 'template/navbar.php'; ?>
+<?php 
+include 'template/head.php'; 
+include 'php_files/session.php';
+session_start();
+
+if (!isset($_SESSION['email'])){
+  header("Location: login.php");
+}
+?>
 <br>
     <div class="container mt-4">
         <div class="card">
             <h5 class="card-header" style= "background-color:<?php echo $primary_color; ?>; color: white"> <i class="fas fa-shopping-bag"></i><b> Checkout</b></h5>
             
             <div class="card-body">
-                <b>ID :</b> <?php echo rand(); ?> <br>
+                
+            <div class="row">
+              <div class="col-md-6">
+                <?php echo $card_product_checkout; ?>
+              </div>
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="text-uppercase" style="color: <?php echo $primary_color; ?>"><b>Informasi Pesanan Anda</b></h4>
+                  <b>ID :</b> <?php echo rand(); ?> <br>
                 <b>Pembelian :</b> Kuota Smartfren 50 GB <br>
                 <b>Harga :</b> 15.000 <br>
                 <hr>
@@ -16,7 +32,7 @@
                     <div class="form-row">
                         <div class="col-md-12 mb-3">
                           <label for="validationCustom03">Phone</label>
-                          <input type="number" class="form-control" id="validationCustom03" required>
+                          <input type="number" class="form-control" id="validationCustom03" value="<?php echo$_SESSION['phone']; ?>" required>
                           <div class="invalid-feedback">
                             Please enter your number phone
                           </div>
@@ -44,9 +60,13 @@
                         </select>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn"  style="color: white; background-color: <?php echo $primary_color; ?>;"><i class="fas fa-shopping-cart"></i> Beli</a></button>
+                        <button type="submit" class="btn"  style="color: white; background-color: <?php echo $primary_color; ?>;"><i class="fas fa-shopping-cart"></i> <a href="buying.php" style="color: white;">Beli</a> </button>
                     </div>
                   </form>
+                  </div>
+                </div>
+              </div>
+            </div>
                 
             </div>
         </div>
