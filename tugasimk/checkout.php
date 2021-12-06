@@ -25,7 +25,7 @@ if (!isset($_SESSION['email'], $_GET['produk'])){
               <div class="col-md-6">
                 <img src="img/logo_op/<?php echo $d['nama_produk']; ?>.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                <h5 class="card-title text-uppercase"><span class="badge badge-warning"><?php echo $d['tambahan']; ?></span> <span class="badge badge-info"><?php echo $d['jenis']; ?></span><b> <?php echo $d['nama_produk']; ?></b></h5>
+                <h5 class="card-title text-uppercase"><span class="badge badge-warning"><?php echo $d['tambahan']; ?></span> <?php if($d['jenis'] == "kuota") { echo '<span class="badge badge-info">KUOTA</span>'; } elseif($d['jenis'] == "pulsa") { echo '<span class="badge badge-success">PULSA</span>'; } ?></span><b> <?php echo $d['nama_produk']; ?></b></h5>
                 <p class="card-text"><i class="fas fa-globe"></i> <?php echo $d['keterangan']; ?></p>
                 <p class="card-text"><i class="far fa-clock"></i> <?php echo $d['masa_aktif']; ?></p>
                 <hr>

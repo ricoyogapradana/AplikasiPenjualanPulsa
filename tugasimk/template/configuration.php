@@ -1,6 +1,6 @@
 <?php
 include './php_files/config.php';
-    $primary_color = '#32a852';
+    $primary_color = '#5584AC';
     $background_color = '';
     $nama_aplikasi = 'Aplikasi Pembelian Pulsa';
     $logo = '<img src="img/logo.png" alt="" width="80px">';
