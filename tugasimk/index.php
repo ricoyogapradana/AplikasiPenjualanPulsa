@@ -1,5 +1,8 @@
-<?php include 'template/head.php'; ?>
-<?php include 'template/navbar.php'; ?>
+<?php 
+include 'template/head.php';
+include 'php_files/session.php';
+include 'php_files/config.php';
+?>
 
       <div class="" style="height:70%">
         <?php echo $carausel; ?>
@@ -9,42 +12,29 @@
         <h2 class="text-center" style="color: <?php echo $primary_color; ?>;"><b>PROMO HARI INI</b></h2>
         <hr>
         <div class="row">
+          <?php 
+            $data = mysqli_query($conn,"select * from produk where tambahan='promo' ");
+            while($d = mysqli_fetch_array($data)){
+          ?>
+
           <div class="col-md-4 mt-2">
             <div class="card" style="width: auto;">
-              <img src="img/logo_op/smartfren.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title"><span class="badge badge-warning">PROMO</span> <span class="badge badge-info">KUOTA</span><b> Smartfren</b></h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <strike>250.000 </strike>
-                <h4><b> <label>Rp</label> 10.000</b></h4>
-                <?php echo $button_beli; ?>
-              </div>
+                <img src="img/logo_op/<?php echo $d['nama_produk']; ?>.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title text-uppercase"><span class="badge badge-warning"><?php echo $d['tambahan']; ?></span> <span class="badge badge-info"><?php echo $d['jenis']; ?></span><b> <?php echo $d['nama_produk']; ?></b></h5>
+                <p class="card-text"><i class="fas fa-globe"></i> <?php echo $d['keterangan']; ?></p>
+                <p class="card-text"><i class="far fa-clock"></i> <?php echo $d['masa_aktif']; ?></p>
+                <hr>
+                <label>Rp</label> <strike><?php echo $d['diskon']; ?></strike>
+                <h4><b> <label>Rp</label> <?php echo $d['harga']; ?></b></h4>
+                <a href="checkout.php?produk=<?php echo $d['id_produk']; ?>" class="btn" style="background-color:<?php echo $primary_color; ?>; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
+                </div>
             </div>
           </div>
-          <div class="col-md-4 mt-2">
-            <div class="card" style="width: auto;">
-              <img src="img/logo_op/telkomsel.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title"><span class="badge badge-warning">PROMO</span> <span class="badge badge-info">KUOTA</span><b> Telkomsel</b></h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <strike>250.000 </strike>
-                <h4><b> <label>Rp</label> 10.000</b></h4>
-                <?php echo $button_beli; ?>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mt-2">
-            <div class="card" style="width: auto;">
-              <img src="img/logo_op/xl.png" class="card-img-top img-fluit" alt="...">
-              <div class="card-body">
-                <h5 class="card-title"><span class="badge badge-warning">PROMO</span> <span class="badge badge-info">KUOTA</span><b> XL</b></h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <strike>250.000 </strike>
-                <h4><b> <label>Rp</label> 10.000</b></h4>
-                <?php echo $button_beli; ?>
-              </div>
-            </div>
-          </div>
+
+          <?php
+            }
+          ?>
         </div>
         <hr>
 
@@ -66,225 +56,84 @@
           <!-- smartfren -->
           <div class="tab-pane fade show active" id="smartfren" role="tabpanel" aria-labelledby="smartfren-tab">
             <div class="row">
+              <?php 
+                $data = mysqli_query($conn,"select * from produk where nama_produk='smartfren' and tambahan='' ");
+                while($d = mysqli_fetch_array($data)){
+              ?>
+
               <div class="col-md-4 mt-2">
                 <div class="card" style="width: auto;">
-                  <img src="img/logo_op/smartfren.png" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title"><span class="badge badge-success">PULSA</span><b> Smartfren</b></h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <h4><b> <label>Rp</label> 50.000</b></h4>
-                    <?php echo $button_beli; ?>
-                  </div>
+                    <img src="img/logo_op/<?php echo $d['nama_produk']; ?>.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title text-uppercase"><span class="badge badge-warning"><?php echo $d['tambahan']; ?></span> <span class="badge badge-info"><?php echo $d['jenis']; ?></span><b> <?php echo $d['nama_produk']; ?></b></h5>
+                    <p class="card-text"><i class="fas fa-globe"></i> <?php echo $d['keterangan']; ?></p>
+                    <p class="card-text"><i class="far fa-clock"></i> <?php echo $d['masa_aktif']; ?></p>
+                    <hr>
+                    <h4><b> <label>Rp</label> <?php echo $d['harga']; ?></b></h4>
+                    <a href="checkout.php?produk=<?php echo $d['id_produk']; ?>" class="btn" style="background-color:<?php echo $primary_color; ?>; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
+                    </div>
                 </div>
               </div>
-              <div class="col-md-4 mt-2">
-                <div class="card" style="width: auto;">
-                  <img src="img/logo_op/smartfren.png" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title"><span class="badge badge-success">PULSA</span><b> Smartfren</b></h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <h4><b> <label>Rp</label> 80.000</b></h4>
-                    <?php echo $button_beli; ?>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 mt-2">
-                <div class="card" style="width: auto;">
-                  <img src="img/logo_op/smartfren.png" class="card-img-top img-fluit" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title"><span class="badge badge-success">PULSA</span><b> Smartfren</b></h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <h4><b> <label>Rp</label> 150.000</b></h4>
-                    <?php echo $button_beli; ?>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- bagian 2 -->
-            <div class="row mt-2">
-              <div class="col-md-4 mt-2">
-                <div class="card" style="width: auto;">
-                  <img src="img/logo_op/smartfren.png" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title"><span class="badge badge-info">KUOTA</span><b> Smartfren</b></h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <h4><b> <label>Rp</label> 40.000</b></h4>
-                    <?php echo $button_beli; ?>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 mt-2">
-                <div class="card" style="width: auto;">
-                  <img src="img/logo_op/smartfren.png" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title"><span class="badge badge-info">KUOTA</span><b> Smartfren</b></h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <h4><b> <label>Rp</label> 90.000</b></h4>
-                    <?php echo $button_beli; ?>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 mt-2">
-                <div class="card" style="width: auto;">
-                  <img src="img/logo_op/smartfren.png" class="card-img-top img-fluit" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title"><span class="badge badge-info">KUOTA</span><b> Smartfren</b></h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <h4><b> <label>Rp</label> 250.000</b></h4>
-                    <?php echo $button_beli; ?>
-                  </div>
-                </div>
-              </div>
+
+              <?php
+                }
+              ?>
             </div>
           </div>
             
           <!-- Telkomsel -->
           <div class="tab-pane fade" id="telkomsel" role="tabpanel" aria-labelledby="telkomsel-tab">
             <div class="row">
-              <div class="col-md-4 mt-2">
-                <div class="card" style="width: auto;">
-                  <img src="img/logo_op/telkomsel.png" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title"><span class="badge badge-success">PULSA</span><b> Telkomsel</b></h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <h4><b> <label>Rp</label> 50.000</b></h4>
-                    <?php echo $button_beli; ?>
+                <?php 
+                  $data = mysqli_query($conn,"select * from produk where nama_produk='telkomsel' and tambahan='' ");
+                  while($d = mysqli_fetch_array($data)){
+                ?>
+
+                <div class="col-md-4 mt-2">
+                  <div class="card" style="width: auto;">
+                      <img src="img/logo_op/<?php echo $d['nama_produk']; ?>.png" class="card-img-top" alt="...">
+                      <div class="card-body">
+                      <h5 class="card-title text-uppercase"><span class="badge badge-warning"><?php echo $d['tambahan']; ?></span> <span class="badge badge-info"><?php echo $d['jenis']; ?></span><b> <?php echo $d['nama_produk']; ?></b></h5>
+                      <p class="card-text"><i class="fas fa-globe"></i> <?php echo $d['keterangan']; ?></p>
+                      <p class="card-text"><i class="far fa-clock"></i> <?php echo $d['masa_aktif']; ?></p>
+                      <hr>
+                      <h4><b> <label>Rp</label> <?php echo $d['harga']; ?></b></h4>
+                      <a href="checkout.php?produk=<?php echo $d['id_produk']; ?>" class="btn" style="background-color:<?php echo $primary_color; ?>; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
+                      </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-md-4 mt-2">
-                <div class="card" style="width: auto;">
-                  <img src="img/logo_op/telkomsel.png" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title"><span class="badge badge-success">PULSA</span><b> Telkomsel</b></h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <h4><b> <label>Rp</label> 80.000</b></h4>
-                    <?php echo $button_beli; ?>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 mt-2">
-                <div class="card" style="width: auto;">
-                  <img src="img/logo_op/telkomsel.png" class="card-img-top img-fluit" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title"><span class="badge badge-success">PULSA</span><b> Telkomsel</b></h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <h4><b> <label>Rp</label> 150.000</b></h4>
-                    <?php echo $button_beli; ?>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Bagian 2 -->
-            <div class="row mt-2">
-              <div class="col-md-4 mt-2">
-                <div class="card" style="width: auto;">
-                  <img src="img/logo_op/telkomsel.png" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title"><span class="badge badge-info">KUOTA</span><b> Telkomsel</b></h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <h4><b> <label>Rp</label> 40.000</b></h4>
-                    <?php echo $button_beli; ?>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 mt-2">
-                <div class="card" style="width: auto;">
-                  <img src="img/logo_op/telkomsel.png" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title"><span class="badge badge-info">KUOTA</span><b> Telkomsel</b></h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <h4><b> <label>Rp</label> 90.000</b></h4>
-                    <?php echo $button_beli; ?>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 mt-2">
-                <div class="card" style="width: auto;">
-                  <img src="img/logo_op/telkomsel.png" class="card-img-top img-fluit" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title"><span class="badge badge-info">KUOTA</span><b> Telkomsel</b></h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <h4><b> <label>Rp</label> 250.000</b></h4>
-                    <?php echo $button_beli; ?>
-                  </div>
-                </div>
-              </div>
+
+                <?php
+                  }
+                ?>
             </div>
           </div>
 
           <!-- xl -->
           <div class="tab-pane fade" id="xl" role="tabpanel" aria-labelledby="xl-tab">
             <div class="row">
-              <div class="col-md-4 mt-2">
-                <div class="card" style="width: auto;">
-                  <img src="img/logo_op/xl.png" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title"><span class="badge badge-success">PULSA</span><b> XL</b></h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <h4><b> <label>Rp</label> 50.000</b></h4>
-                    <?php echo $button_beli; ?>
+                <?php 
+                  $data = mysqli_query($conn,"select * from produk where nama_produk='xl' and tambahan='' ");
+                  while($d = mysqli_fetch_array($data)){
+                ?>
+
+                <div class="col-md-4 mt-2">
+                  <div class="card" style="width: auto;">
+                      <img src="img/logo_op/<?php echo $d['nama_produk']; ?>.png" class="card-img-top" alt="...">
+                      <div class="card-body">
+                      <h5 class="card-title text-uppercase"><span class="badge badge-warning"><?php echo $d['tambahan']; ?></span> <span class="badge badge-info"><?php echo $d['jenis']; ?></span><b> <?php echo $d['nama_produk']; ?></b></h5>
+                      <p class="card-text"><i class="fas fa-globe"></i> <?php echo $d['keterangan']; ?></p>
+                      <p class="card-text"><i class="far fa-clock"></i> <?php echo $d['masa_aktif']; ?></p>
+                      <hr>
+                      <h4><b> <label>Rp</label> <?php echo $d['harga']; ?></b></h4>
+                      <a href="checkout.php?produk=<?php echo $d['id_produk']; ?>" class="btn" style="background-color:<?php echo $primary_color; ?>; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
+                      </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-md-4 mt-2">
-                <div class="card" style="width: auto;">
-                  <img src="img/logo_op/xl.png" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title"><span class="badge badge-success">PULSA</span><b> XL</b></h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <h4><b> <label>Rp</label> 80.000</b></h4>
-                    <?php echo $button_beli; ?>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 mt-2">
-                <div class="card" style="width: auto;">
-                  <img src="img/logo_op/xl.png" class="card-img-top img-fluit" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title"><span class="badge badge-success">PULSA</span><b> XL</b></h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <h4><b> <label>Rp</label> 150.000</b></h4>
-                    <?php echo $button_beli; ?>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Bagian 2 -->
-            <div class="row mt-2">
-              <div class="col-md-4 mt-2">
-                <div class="card" style="width: auto;">
-                  <img src="img/logo_op/xl.png" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title"><span class="badge badge-info">KUOTA</span><b> XL</b></h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <h4><b> <label>Rp</label> 40.000</b></h4>
-                    <?php echo $button_beli; ?>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 mt-2">
-                <div class="card" style="width: auto;">
-                  <img src="img/logo_op/xl.png" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title"><span class="badge badge-info">KUOTA</span><b> XL</b></h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <h4><b> <label>Rp</label> 90.000</b></h4>
-                    <?php echo $button_beli; ?>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 mt-2">
-                <div class="card" style="width: auto;">
-                  <img src="img/logo_op/xl.png" class="card-img-top img-fluit" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title"><span class="badge badge-info">KUOTA</span><b> XL</b></h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <h4><b> <label>Rp</label> 250.000</b></h4>
-                    <?php echo $button_beli; ?>
-                  </div>
-                </div>
-              </div>
+
+                <?php
+                  }
+                ?>
             </div>
           </div>
         </div>

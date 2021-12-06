@@ -46,8 +46,19 @@ if (!isset($_SESSION['email'])){
                 <b>Pembelian : </b> <?php echo $d['keterangan']; ?> (<?php echo $d['no_tujuan']; ?>)<br>
                 <b>Tanggal</b> : <?php echo $d['tanggal_pembelian'] ?> <br>
                 <b>Metode Pembayaran : </b> <?php echo $d['jenis_pembayaran']; ?> <br>
-                <b>Harga : </b> <label>Rp</label> <?php echo $d['harga']; ?> <br>
-                <b>Status</b> : <span class="badge badge-success"><?php echo $d['status']; ?></span>
+                <b>Total : </b> <label>Rp</label> <?php echo $d['harga']; ?> <br>
+                <b>Status</b> : 
+                <?php
+                  if ($d['status'] == "Selesai") {
+                    echo '<span class="badge badge-success">Selesai</span>';
+                  } elseif ($d['status'] == "Diproses") {
+                    echo '<span class="badge badge-info">Diproses</span>';
+                  } elseif ($d['status'] == "Dibatalkan") {
+                    echo '<span class="badge badge-danger">Dibatalkan</span>';
+                  } elseif ($d['status'] == "Belum Dibayar") {
+                    echo '<span class="badge badge-secondary">Belum Dibayar</span>';
+                  }
+                ?>
               </div>
             </div>
           </div>
@@ -73,7 +84,7 @@ if (!isset($_SESSION['email'])){
                 <b>Pembelian : </b> <?php echo $d['keterangan']; ?> (<?php echo $d['no_tujuan']; ?>)<br>
                 <b>Tanggal</b> : <?php echo $d['tanggal_pembelian'] ?> <br>
                 <b>Metode Pembayaran : </b> <?php echo $d['jenis_pembayaran']; ?> <br>
-                <b>Harga : </b> <label>Rp</label> <?php echo $d['harga']; ?> <br>
+                <b>Total : </b> <label>Rp</label> <?php echo $d['harga']; ?> <br>
                 <b>Status</b> : <span class="badge badge-success"><?php echo $d['status']; ?></span>
               </div>
             </div>
@@ -103,7 +114,7 @@ if (!isset($_SESSION['email'])){
                 <b>Pembelian : </b> <?php echo $d['keterangan']; ?> (<?php echo $d['no_tujuan']; ?>)<br>
                 <b>Tanggal</b> : <?php echo $d['tanggal_pembelian'] ?> <br>
                 <b>Metode Pembayaran : </b> <?php echo $d['jenis_pembayaran']; ?> <br>
-                <b>Harga : </b> <label>Rp</label> <?php echo $d['harga']; ?> <br>
+                <b>Total : </b> <label>Rp</label> <?php echo $d['harga']; ?> <br>
                 <b>Status</b> : <span class="badge badge-info"><?php echo $d['status']; ?></span>
               </div>
             </div>
@@ -129,7 +140,7 @@ if (!isset($_SESSION['email'])){
                 <b>Pembelian : </b> <?php echo $d['keterangan']; ?> (<?php echo $d['no_tujuan']; ?>)<br>
                 <b>Tanggal</b> : <?php echo $d['tanggal_pembelian'] ?> <br>
                 <b>Metode Pembayaran : </b> <?php echo $d['jenis_pembayaran']; ?> <br>
-                <b>Harga : </b> <label>Rp</label> <?php echo $d['harga']; ?> <br>
+                <b>Total : </b> <label>Rp</label> <?php echo $d['harga']; ?> <br>
                 <b>Status</b> : <span class="badge badge-danger"><?php echo $d['status']; ?></span>
               </div>
             </div>

@@ -1,9 +1,12 @@
-<?php include 'template/head.php'; ?>
-<?php include 'template/navbar.php'; ?>
+<?php 
+include 'template/head.php'; 
+include 'php_files/session.php';
+?>
+
 <br>
     <div class="container mt-4">
         <div class="card">
-            <h5 class="card-header" style= "background-color:<?php echo $primary_color; ?>; color: white"> <i class="fas fa-sticky-note"></i><b> ID : <?php echo rand(); ?> </b></h5>
+            <h5 class="card-header" style= "background-color:<?php echo $primary_color; ?>; color: white"> <i class="fas fa-sticky-note"></i><b> ID PESANAN : <?php echo rand(); ?> </b></h5>
             
             <div class="card-body">
                 <b>Tanggal :</b> <?php echo date("l, m-d-Y") ?> <br>

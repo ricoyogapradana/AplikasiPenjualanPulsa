@@ -1,4 +1,7 @@
-<?php include 'configuration.php'; ?>
+<?php 
+include 'configuration.php'; 
+include 'card_product_home.php';
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,8 +18,9 @@
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <title>Aplikasi Pembelian Pulsa</title>
+    <title><?php echo $nama_aplikasi; ?></title>
     
   </head>
   <body>

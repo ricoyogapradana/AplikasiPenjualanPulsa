@@ -1,5 +1,9 @@
-<?php include 'template/head.php'; ?>
-<?php include 'template/navbar.php'; ?>
+<?php 
+include 'template/head.php';
+include 'template/navbar.php';
+include 'php_files/login.php';
+include 'php_files/register.php';
+?>
 <br>
     <div class="container">
         <div class="row mt-4">
@@ -7,18 +11,18 @@
             <?php echo $carausel; ?>
             </div>
             <div class="col-md-4">
-                <div class="card container">
-                    <form>
+                <div class="card container" style="border-radius: 20px">
+                    <form action="" method="POST">
                         <div class="mb-3 mt-4">
                           <label for="exampleInputEmail1" class="form-label">Email address</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                          <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                           <div class="invalid-feedback">
                             Enter your First name
                           </div>
                         </div>
                         <div class="mb-3">
                           <label for="exampleInputPassword1" class="form-label">Password</label>
-                          <input type="password" class="form-control" id="exampleInputPassword1" required>
+                          <input type="password" class="form-control" name="password" id="exampleInputPassword1" required>
                         </div>
                         <div class="mb-3">
                            
@@ -44,7 +48,7 @@
                                 </script>
                             </div>
                             <div class="col-md-6">
-                              <button type="submit" class="btn btn-block" style="color: white; background-color: <?php echo $primary_color; ?>;">Login</button>
+                              <button name="submit" class="btn btn-block" style="color: white; background-color: <?php echo $primary_color; ?>;">Login</button>
                             </div>
                         </div>
                           <hr>
@@ -69,18 +73,18 @@
               </button>
             </div>
             <div class="modal-body">
-                <form class="needs-validation" novalidate>
+                <form action="" method="POST" class="needs-validation" novalidate>
                     <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label for="validationCustom01">First name</label>
-                        <input type="text" class="form-control" id="validationCustom01" required>
+                        <input type="text" name="r_firstname" class="form-control" id="validationCustom01" required>
                         <div class="invalid-feedback">
                           Enter your First name
                         </div>
                       </div>
                       <div class="col-md-6 mb-3">
                         <label for="validationCustom02">Last name</label>
-                        <input type="text" class="form-control" id="validationCustom02" required>
+                        <input type="text" name="r_lastname" class="form-control" id="validationCustom02" required>
                         <div class="invalid-feedback">
                             Enter your Last name
                         </div>
@@ -89,7 +93,7 @@
                     <div class="form-row">
                       <div class="col-md-12 mb-3">
                         <label for="validationCustom03">Email</label>
-                        <input type="email" class="form-control" id="validationCustom03" required>
+                        <input type="email" name="r_email" class="form-control" id="validationCustom03" required>
                         <div class="invalid-feedback">
                           Please enter your email
                         </div>
@@ -98,9 +102,18 @@
                     <div class="form-row">
                         <div class="col-md-12 mb-3">
                           <label for="validationCustom03">Phone</label>
-                          <input type="number" class="form-control" id="validationCustom03" required>
+                          <input type="number" name="r_phone" class="form-control" id="validationCustom03" required>
                           <div class="invalid-feedback">
                             Please enter your number phone
+                          </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                          <label for="validationCustom03">Password</label>
+                          <input type="password" name="r_password" class="form-control" id="validationCustom03" required>
+                          <div class="invalid-feedback">
+                            Please enter your password
                           </div>
                         </div>
                     </div>
@@ -117,7 +130,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn"  style="color: white; background-color: <?php echo $primary_color; ?>;">Register</button>
+                        <button type="submit" name="r_submit" class="btn"  style="color: white; background-color: <?php echo $primary_color; ?>;">Register</button>
                       </div>
                   </form>
             </div>
@@ -148,5 +161,5 @@
         }, false);
       })();
       </script>
-
+<?php include 'template/footer.php'; ?>
 <?php include 'template/foot.php'; ?>
