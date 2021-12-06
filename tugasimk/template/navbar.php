@@ -18,7 +18,7 @@
           </li> -->
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <a href="login.php" class="btn my-2 my-sm-0" style="background-color: white; color: <?php echo $primary_color; ?>;"><b>Login</b></a>
+          <a href="login.php" class="btn my-2 my-sm-0" style="background-color: white; color: <?php echo $primary_color; ?>; border-radius: 20px;"><b>Login</b></a>
         </form>
       </div>
     </nav><br>

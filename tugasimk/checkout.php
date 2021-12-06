@@ -1,9 +1,11 @@
 <?php 
 include 'template/head.php'; 
 include 'php_files/session.php';
+include 'php_files/config.php';
+include 'php_files/checkout-p.php';
 session_start();
 
-if (!isset($_SESSION['email'])){
+if (!isset($_SESSION['email'], $_GET['produk'])){
   header("Location: login.php");
 }
 ?>
@@ -15,24 +17,43 @@ if (!isset($_SESSION['email'])){
             <div class="card-body">
                 
             <div class="row">
+            <?php 
+              $id = $_GET['produk'];
+              $data = mysqli_query($conn,"select * from produk where id_produk='$id' ");
+              while($d = mysqli_fetch_array($data)){
+            ?>
               <div class="col-md-6">
-                <?php echo $card_product_checkout; ?>
+                <img src="img/logo_op/<?php echo $d['nama_produk']; ?>.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title text-uppercase"><span class="badge badge-warning"><?php echo $d['tambahan']; ?></span> <span class="badge badge-info"><?php echo $d['jenis']; ?></span><b> <?php echo $d['nama_produk']; ?></b></h5>
+                <p class="card-text"><i class="fas fa-globe"></i> <?php echo $d['keterangan']; ?></p>
+                <p class="card-text"><i class="far fa-clock"></i> <?php echo $d['masa_aktif']; ?></p>
+                <hr>
+                <strike><?php echo $d['diskon']; ?></strike>
+                <h4><b> <label>Rp</label> <?php echo $d['harga']; ?></b></h4>
+                </div>
               </div>
               <div class="col-md-6">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="text-uppercase" style="color: <?php echo $primary_color; ?>"><b>Informasi Pesanan Anda</b></h4>
-                  <b>ID :</b> <?php echo rand(); ?> <br>
-                <b>Pembelian :</b> Kuota Smartfren 50 GB <br>
-                <b>Harga :</b> 15.000 <br>
+                    <h4 class="text-uppercase" style="color: <?php echo $primary_color; ?>"><b>Konfirmasi Pesanan Anda</b></h4>
+                  <b>Pembelian :</b> <?php echo '<label class="card-title text-capitalize">' . $d['nama_produk'] . '</label>'; ?> - <?php echo $d['keterangan']; ?> <br>
+                  <b>Harga : </b> <label>Rp</label> <?php echo $d['harga']; ?> <br>
                 <hr>
                 
                 <h5 class="card-title" style="color: <?php echo $primary_color; ?>"><b>Silahkan isi informasi Pembelian</b></h5>
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation" method="POST" novalidate>
+                  <input type="number" class="form-control" id="validationCustom03" name="id_transaksi" value="<?php echo time(); ?>" hidden>
+                  <input type="number" class="form-control" id="validationCustom03" name="id_pembeli" value="<?php echo $_SESSION['id']; ?>" hidden>
+                  <input type="text" class="form-control" id="validationCustom03" name="nama_produk" value="<?php echo $d['nama_produk']; ?>" hidden>
+                  <input type="text" class="form-control" id="validationCustom03" name="keterangan" value="<?php echo $d['keterangan']; ?>" hidden>
+                  <input type="text" class="form-control" id="validationCustom03" name="harga" value="<?php echo $d['harga']; ?>" hidden>
+                  <input type="text" class="form-control" id="validationCustom03" name="tanggal_pembelian" value="<?php echo date('D, d M Y'); ?>" hidden>
+                  <input type="text" class="form-control" id="validationCustom03" name="status" value="<?php echo 'Belum Dibayar'; ?>" hidden>
                     <div class="form-row">
                         <div class="col-md-12 mb-3">
                           <label for="validationCustom03">Phone</label>
-                          <input type="number" class="form-control" id="validationCustom03" value="<?php echo$_SESSION['phone']; ?>" required>
+                          <input type="number" class="form-control" id="validationCustom03" name="no_tujuan" value="<?php echo$_SESSION['phone']; ?>" required>
                           <div class="invalid-feedback">
                             Please enter your number phone
                           </div>
@@ -53,15 +74,18 @@ if (!isset($_SESSION['email'])){
                     <h5 class="card-title" style="color: <?php echo $primary_color; ?>"><b>Silahkan isi informasi Pembayaran</b></h5>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Pilih Pembayaran: </label>
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <select name="jenis_pembayaran" class="form-control" id="exampleFormControlSelect1">
                         <option>Transfer Bank - BCA</option>
                         <option>Alfamart</option>
                         <option>Indomaret</option>
                         </select>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn"  style="color: white; background-color: <?php echo $primary_color; ?>;"><i class="fas fa-shopping-cart"></i> <a href="buying.php" style="color: white;">Beli</a> </button>
+                        <button type="submit" class="btn" name="c_submit" style="color: white; background-color: <?php echo $primary_color; ?>;"><i class="fas fa-shopping-cart"></i> Beli </button>
                     </div>
+                    <?php
+                      }
+                    ?>
                   </form>
                   </div>
                 </div>

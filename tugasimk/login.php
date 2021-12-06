@@ -11,7 +11,7 @@ include 'php_files/register.php';
             <?php echo $carausel; ?>
             </div>
             <div class="col-md-4">
-                <div class="card container">
+                <div class="card container" style="border-radius: 20px">
                     <form action="" method="POST">
                         <div class="mb-3 mt-4">
                           <label for="exampleInputEmail1" class="form-label">Email address</label>

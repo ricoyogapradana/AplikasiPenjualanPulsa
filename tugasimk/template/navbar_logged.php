@@ -22,7 +22,7 @@ include '../php_files/session.php';
         </ul>
         <form class="form-inline my-3 my-lg-0">
           <a href="" class="btn" style="background-color: white; color: <?php echo $primary_color; ?>; margin-right: 5px"><i class="fas fa-bell"></i></a>
-          <a href="" class="btn" style="background-color: white; color: <?php echo $primary_color; ?>; margin-right: 5px"><i class="fas fa-shopping-cart"></i></a>
+          <a href="./transaksi.php" class="btn" style="background-color: white; color: <?php echo $primary_color; ?>; margin-right: 5px"><i class="fas fa-shopping-cart"></i></a>
           <div class="dropdown">
             <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false" style="background-color: white; color: <?php echo $primary_color; ?>;">
               <img src="img/pp/pp.png" width="23" style="border-radius: 50%"><b> <?php echo $_SESSION['first_name']; ?></b>

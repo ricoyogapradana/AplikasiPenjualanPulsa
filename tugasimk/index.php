@@ -22,10 +22,12 @@ include 'php_files/config.php';
                 <img src="img/logo_op/<?php echo $d['nama_produk']; ?>.png" class="card-img-top" alt="...">
                 <div class="card-body">
                 <h5 class="card-title text-uppercase"><span class="badge badge-warning"><?php echo $d['tambahan']; ?></span> <span class="badge badge-info"><?php echo $d['jenis']; ?></span><b> <?php echo $d['nama_produk']; ?></b></h5>
-                <p class="card-text"><?php echo $d['keterangan']; ?></p>
-                <strike><?php echo $d['harga']; ?></strike>
-                <h4><b> <label>Rp</label> <?php echo $d['diskon']; ?></b></h4>
-                <?php echo $button_beli; ?>
+                <p class="card-text"><i class="fas fa-globe"></i> <?php echo $d['keterangan']; ?></p>
+                <p class="card-text"><i class="far fa-clock"></i> <?php echo $d['masa_aktif']; ?></p>
+                <hr>
+                <label>Rp</label> <strike><?php echo $d['diskon']; ?></strike>
+                <h4><b> <label>Rp</label> <?php echo $d['harga']; ?></b></h4>
+                <a href="checkout.php?produk=<?php echo $d['id_produk']; ?>" class="btn" style="background-color:<?php echo $primary_color; ?>; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
                 </div>
             </div>
           </div>
@@ -65,10 +67,10 @@ include 'php_files/config.php';
                     <div class="card-body">
                     <h5 class="card-title text-uppercase"><span class="badge badge-warning"><?php echo $d['tambahan']; ?></span> <span class="badge badge-info"><?php echo $d['jenis']; ?></span><b> <?php echo $d['nama_produk']; ?></b></h5>
                     <p class="card-text"><i class="fas fa-globe"></i> <?php echo $d['keterangan']; ?></p>
-                    <p class="card-text"><i class="far fa-clock"></i> <?php echo $d['berlaku']; ?></p>
+                    <p class="card-text"><i class="far fa-clock"></i> <?php echo $d['masa_aktif']; ?></p>
                     <hr>
                     <h4><b> <label>Rp</label> <?php echo $d['harga']; ?></b></h4>
-                    <?php echo $button_beli; ?>
+                    <a href="checkout.php?produk=<?php echo $d['id_produk']; ?>" class="btn" style="background-color:<?php echo $primary_color; ?>; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
                     </div>
                 </div>
               </div>
@@ -93,10 +95,10 @@ include 'php_files/config.php';
                       <div class="card-body">
                       <h5 class="card-title text-uppercase"><span class="badge badge-warning"><?php echo $d['tambahan']; ?></span> <span class="badge badge-info"><?php echo $d['jenis']; ?></span><b> <?php echo $d['nama_produk']; ?></b></h5>
                       <p class="card-text"><i class="fas fa-globe"></i> <?php echo $d['keterangan']; ?></p>
-                      <p class="card-text"><i class="far fa-clock"></i> <?php echo $d['berlaku']; ?></p>
+                      <p class="card-text"><i class="far fa-clock"></i> <?php echo $d['masa_aktif']; ?></p>
                       <hr>
                       <h4><b> <label>Rp</label> <?php echo $d['harga']; ?></b></h4>
-                      <?php echo $button_beli; ?>
+                      <a href="checkout.php?produk=<?php echo $d['id_produk']; ?>" class="btn" style="background-color:<?php echo $primary_color; ?>; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
                       </div>
                   </div>
                 </div>
@@ -121,10 +123,10 @@ include 'php_files/config.php';
                       <div class="card-body">
                       <h5 class="card-title text-uppercase"><span class="badge badge-warning"><?php echo $d['tambahan']; ?></span> <span class="badge badge-info"><?php echo $d['jenis']; ?></span><b> <?php echo $d['nama_produk']; ?></b></h5>
                       <p class="card-text"><i class="fas fa-globe"></i> <?php echo $d['keterangan']; ?></p>
-                      <p class="card-text"><i class="far fa-clock"></i> <?php echo $d['berlaku']; ?></p>
+                      <p class="card-text"><i class="far fa-clock"></i> <?php echo $d['masa_aktif']; ?></p>
                       <hr>
                       <h4><b> <label>Rp</label> <?php echo $d['harga']; ?></b></h4>
-                      <?php echo $button_beli; ?>
+                      <a href="checkout.php?produk=<?php echo $d['id_produk']; ?>" class="btn" style="background-color:<?php echo $primary_color; ?>; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
                       </div>
                   </div>
                 </div>

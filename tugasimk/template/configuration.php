@@ -1,13 +1,13 @@
 <?php
 include './php_files/config.php';
-    $primary_color = '#000080';
+    $primary_color = '#32a852';
     $background_color = '';
     $logo = '<img src="img/logo.png" alt="" width="80px">';
 
-    $button_beli = '<a href="checkout.php" class="btn" style="background-color: '. $primary_color . '; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>';
+    // $button_beli = '<a href="checkout.php?id='. echo $d['id_produk'] .'" class="btn" style="background-color: '. $primary_color . '; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>';
 
     $carausel = '
-            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+            <div id="carouselExampleCaptions" class="carousel slide mb-2" data-ride="carousel">
               <ol class="carousel-indicators">
                 <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
@@ -15,21 +15,21 @@ include './php_files/config.php';
               </ol>
               <div class="carousel-inner" style="height: auto;">
                 <div class="carousel-item active" style="height: auto;">
-                  <img src="img/1.png" class="d-block w-100" alt="...">
+                  <img src="img/1.png" class="d-block w-100" alt="..." style="border-radius: 20px">
                   <div class="carousel-caption d-none d-md-block">
                     <h5>First slide label</h5>
                     <p>Some representative placeholder content for the first slide.</p>
                   </div>
                 </div>
                 <div class="carousel-item" style="height: auto;">
-                  <img src="img/2.jpg" class="d-block w-100" alt="...">
+                  <img src="img/2.jpg" class="d-block w-100" alt="..." style="border-radius: 20px">
                   <div class="carousel-caption d-none d-md-block">
                     <h5>Second slide label</h5>
                     <p>Some representative placeholder content for the second slide.</p>
                   </div>
                 </div>
                 <div class="carousel-item" style="height: auto;">
-                  <img src="img/3.png" class="d-block w-100" alt="...">
+                  <img src="img/3.png" class="d-block w-100" alt="..." style="border-radius: 20px">
                   <div class="carousel-caption d-none d-md-block">
                     <h5>Third slide label</h5>
                     <p>Some representative placeholder content for the third slide.</p>
