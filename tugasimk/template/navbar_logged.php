@@ -28,7 +28,7 @@ include '../php_files/session.php';
               <img src="img/pp/pp.png" width="23" style="border-radius: 50%"><b> <?php echo $_SESSION['first_name']; ?></b>
             </button>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Settings</a>
+              <a class="dropdown-item" href="settings.php">Settings</a>
               <hr>
               <a class="dropdown-item" href="./php_files/logout.php">Log Out</a>
             </div>

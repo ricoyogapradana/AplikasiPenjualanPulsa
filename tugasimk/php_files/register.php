@@ -25,7 +25,13 @@ if (isset($_POST['r_submit'])) {
                     VALUES ('$r_email', '$r_firstname', '$r_lastname', '$r_phone', '$r_password')";
             $result = mysqli_query($conn, $sql);
             if ($result) {
-                echo "<script>alert('Selamat, registrasi berhasil!')</script>";
+                echo "<script>      
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil',
+                    text: 'Registrasi Berhasil, Silahkan Login',
+                })
+            </script>";
                 $username = "";
                 $email = "";
                 $_POST['password'] = "";

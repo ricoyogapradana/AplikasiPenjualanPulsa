@@ -7,7 +7,7 @@
 <br>
 
 <div class="container mt-4">
-    <h3 style="color:<?php echo $primary_color; ?>">Pusat Bantuan</h3>
+    <h2 class="mb-4" style= "color:<?php echo $primary_color; ?>;"> <i class="fas fa-tools"></i><b> Pusat Bantuan </b></h2>
     <div class="card">
         <div class="card-body">
         <form action="" method="POST" class="needs-validation" novalidate>
