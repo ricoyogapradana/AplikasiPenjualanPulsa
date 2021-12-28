@@ -1,21 +1,44 @@
 <?php 
 include 'template/head.php'; 
 include 'php_files/session.php';
+session_start();
+
+if (!isset($_SESSION['email'], $_GET['id'])){
+  header("Location: login.php");
+}
 ?>
 
 <br>
     <div class="container mt-4">
         <div class="card">
-            <h5 class="card-header" style= "background-color:<?php echo $primary_color; ?>; color: white"> <i class="fas fa-sticky-note"></i><b> ID PESANAN : <?php echo rand(); ?> </b></h5>
+            <?php 
+              $id = $_GET['id'];
+              $data = mysqli_query($conn,"select * from transaksi where id_transaksi='$id' ");
+              $cek = mysqli_num_rows($data);
+              if (empty($cek)) {
+              ?>
+              <div class="row">
+                <div class="col-md-6">
+                <img src="img/error.jpg" class="img-fluid" alt="">
+                </div>
+                <div class="col-md-6">
+                  <h1 class="text-center mt-5" style="color:<?php echo $primary_color; ?>;"><b>Id Transaksi tidak ditemukan..</b></h1>
+                </div>
+              </div>
+              <?php
+                } else {
+              
+              while($d = mysqli_fetch_array($data)){
+            ?>
+            <h5 class="card-header" style= "background-color:<?php echo $primary_color; ?>; color: white"> <i class="fas fa-sticky-note"></i><b> ID PESANAN : <?php echo $d['id_transaksi']; ?> </b></h5>
             
             <div class="card-body">
-                <b>Tanggal :</b> <?php echo date("l, m-d-Y") ?> <br>
-                <b>Pembelian :</b> Kuota Smartfren 50 GB <br>
-                <b>Harga :</b> 15.000 <br>
-                <b>Metode Pembayaran :</b> Transfer Bank - BCA <br>
+                <b>Tanggal :</b> <?php echo $d['tanggal_pembelian']; ?> <br>
+                <b>Pembelian :</b> <?php echo $d['nama_produk']; ?> - <?php echo $d['keterangan']; ?> <br>
+                <b>Harga :</b> <?php echo $d['harga']; ?> <br>
+                <b>Metode Pembayaran :</b> <?php echo $d['jenis_pembayaran']; ?> <br>
                 <hr>
-                
-                <h5 class="card-title" style="color: <?php echo $primary_color; ?>"><b>CARA PEMBAYARAN VIA ATM Lain / Bersama</b></h5>
+                <!-- <h5 class="card-title" style="color: <?php echo $primary_color; ?>"><b>CARA PEMBAYARAN VIA ATM Lain / Bersama</b></h5>
 
                 1. Pilih Transfer <br>
                 2. Pilih Antar Bank/Bank Lain <br>
@@ -24,7 +47,7 @@ include 'php_files/session.php';
                 5. Masukkan jumlah 51.500 secara tepat (tanpa pembulatan). Jumlah nominal yang tidak sesuai dengan tagihan akan menyebabkan transaksi gagal <br>
                 6. Kosongkan nomor referensi dan tekan Benar <br>
                 7. Di halaman konfirmasi transfer akan muncul jumlah yang dibayarkan, no.rekening tujuan. Jika informasinya telah cocok tekan Benar <br>
-                8. Pastikan transfer berhasil dan simpan bukti bayar <br><br>
+                8. Pastikan transfer berhasil dan simpan bukti bayar <br><br> -->
 
                 <h5 class="card-title text-uppercase" style="color: <?php echo $primary_color; ?>"><b>Cara Transfer Uang Lewat ATM BCA ke Virtual Account</b></h5>
                 <div class="accordion" id="accordionExample">
@@ -36,7 +59,7 @@ include 'php_files/session.php';
                         </button>
                       </h2>
                     </div>
-                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div id="collapseOne" class="collapse text-decoration-none" aria-labelledby="headingOne" data-parent="#accordionExample">
                       <div class="card-body">
                       1. Pilih menu Transfer – Ke Rek BCA Virtual Account. <br>
                       2. Masukkan Nomor BCA Virtual Account, lalu pilih Benar. <br>
@@ -71,7 +94,10 @@ include 'php_files/session.php';
                     </div>
                   </div>
                 </div>
+                <br>
+                <a href="" class="btn btn-block text-decoration-none" style="color: white; background-color: <?php echo $primary_color; ?>"><b>Saya Sudah Bayar</b></a>
             </div>
+            <?php } } ?>
         </div>
     </div>
 

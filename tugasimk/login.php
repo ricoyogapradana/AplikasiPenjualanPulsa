@@ -128,6 +128,7 @@ include 'php_files/register.php';
                         </div>
                       </div>
                     </div>
+                    <input type="password" name="r_saldo" class="form-control" id="validationCustom03" value="0" required hidden>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" name="r_submit" class="btn"  style="color: white; background-color: <?php echo $primary_color; ?>;">Register</button>
@@ -161,5 +162,6 @@ include 'php_files/register.php';
         }, false);
       })();
       </script>
+
 <?php include 'template/footer.php'; ?>
 <?php include 'template/foot.php'; ?>

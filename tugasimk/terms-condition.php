@@ -1,5 +1,5 @@
 <?php include 'template/head.php'; ?>
-<?php include 'template/navbar.php'; ?>
+<?php include 'php_files/session.php'; ?>
 
     <br>
     <div class="container mt-5">

@@ -9,7 +9,8 @@
               </div>
               <div class="col-lg-4 col-md-6">
                   <h5 class="text-white mb-3">Pusat Bantuan</h5>
-                  <a href="report.php" class="text-white">Lapor Masalah</a> <br>
+                  <a href="report.php" class="text-white text-decoration-none">Lapor Masalah</a> <br>
+                  <a href="terms-condition.php" class="text-white text-decoration-none">Terms and Condtions</a> <br>
               </div>
               <div class="col-lg-4 col-md-6">
                   <h5 class="text-white mb-3">Newsletter</h5>

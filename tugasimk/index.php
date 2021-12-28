@@ -2,11 +2,9 @@
 include 'template/head.php';
 include 'php_files/session.php';
 include 'php_files/config.php';
+session_start();
 ?>
-
-      <div class="" style="height:70%">
-        <?php echo $carausel; ?>
-      </div>
+      <?php include 'template/cek_dompet.php' ?>
 
       <div class="container mt-4">
         <h2 class="text-center" style="color: <?php echo $primary_color; ?>;"><b>PROMO HARI INI</b></h2>
@@ -140,7 +138,42 @@ include 'php_files/config.php';
         <hr>
         <!-- End Etalase -->
 
-
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style="color:<?php echo $primary_color; ?>;">Saldo Topsa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                <?php 
+                  $data = mysqli_query($conn,"select * from produk where nama_produk='topsa wallet' and tambahan='' ");
+                  while($d = mysqli_fetch_array($data)){
+                ?>
+                  <div class="col-md-4 mb-2">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title text-uppercase"><b> <?php echo $d['nama_produk']; ?></b></h5>
+                        <p class="card-text"><i class="fas fa-money-bill-wave"></i> <?php echo $d['keterangan']; ?></p>
+                        <hr>
+                        <h4><b> <label>Rp</label> <?php echo $d['harga']; ?></b></h4>
+                        <a href="checkout.php?produk=<?php echo $d['id_produk']; ?>" class="btn" style="background-color:<?php echo $primary_color; ?>; color: white;"><i class="fas fa-shopping-cart"></i> Beli</a>
+                      </div>
+                    </div>
+                  </div>
+                <?php } ?>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
     <!-- FOOTER -->

@@ -16,7 +16,10 @@ if (!isset($_SESSION['email'])){
 
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
-        <a class="nav-link active" id="semua-tab" data-toggle="tab" href="#semua" role="tab" aria-controls="semua" aria-selected="true" style="color: <?php echo $primary_color; ?>;">Semua</a>
+        <a class="nav-link" id="semua-tab" data-toggle="tab" href="#semua" role="tab" aria-controls="semua" aria-selected="true" style="color: <?php echo $primary_color; ?>;">Semua Transaksi</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="belumbayar-tab" data-toggle="tab" href="#belumbayar" role="tab" aria-controls="belumbayar" aria-selected="true" style="color: <?php echo $primary_color; ?>;">Belum Bayar</a>
       </li>
       <li class="nav-item" role="presentation">
         <a class="nav-link" id="diproses-tab" data-toggle="tab" href="#diproses" role="tab" aria-controls="diproses" aria-selected="false" style="color: <?php echo $primary_color; ?>;">Diproses</a>
@@ -29,13 +32,34 @@ if (!isset($_SESSION['email'])){
       </li>
     </ul>
     <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="semua" role="tabpanel" aria-labelledby="semua-tab">
+    <div class="tab-pane fade show active" id="belumbayar" role="tabpanel" aria-labelledby="belumbayar-tab">
         <!--  -->
-        <?php 
-                $data = mysqli_query($conn,"select * from transaksi where id_pembeli='". $_SESSION['id'] . "' ORDER BY id_transaksi desc ");
+                <?php 
+                $data = mysqli_query($conn,"select * from transaksi where id_pembeli='". $_SESSION['id'] . "' and status='Belum Dibayar' ORDER BY id_transaksi desc ");
+                $cek = mysqli_num_rows($data);
+                if (empty($cek)) {
+                ?>
+                <div class="row">
+                  <div class="col-md-6">
+                  <img src="img/data_kosong.jpg" class="img-fluid" alt="">
+                  </div>
+                  <div class="col-md-6">
+                    <h1 class="text-center mt-5" style="color:<?php echo $primary_color; ?>;"><b>Belum ada transaksi yang belum kamu bayar.</b></h1>
+                  </div>
+                </div>
+                <?php
+                  } else {
+                    echo "<script>      
+                  Swal.fire({
+                      icon: 'info',
+                      title: 'Informasi',
+                      text: 'Kamu memiliki tagihan aktif.. segera selesaikan pembayaran.',
+                  })
+              </script>";
                 while($d = mysqli_fetch_array($data)){
               ?>
         <div class="card mt-2">
+          <a class="text-decoration-none" href="buying.php?id=<?php echo $d['id_transaksi']; ?>" style="color: black;">
           <div class="card-body">
             <div class="row">
               <div class="col-md-3">
@@ -62,15 +86,81 @@ if (!isset($_SESSION['email'])){
               </div>
             </div>
           </div>
+          </a>
         </div>
-        <?php } ?>
+        <?php } } ?>
+        <!--  -->
+      </div>
+      <div class="tab-pane fade show" id="semua" role="tabpanel" aria-labelledby="semua-tab">
+        <!--  -->
+                <?php 
+                $data = mysqli_query($conn,"select * from transaksi where id_pembeli='". $_SESSION['id'] . "' ORDER BY id_transaksi desc ");
+                $cek = mysqli_num_rows($data);
+                if (empty($cek)) {
+                ?>
+                <div class="row">
+                  <div class="col-md-6">
+                  <img src="img/data_kosong.jpg" class="img-fluid" alt="">
+                  </div>
+                  <div class="col-md-6">
+                    <h1 class="text-center mt-5" style="color:<?php echo $primary_color; ?>;"><b>Belum ada transaksi yang kamu lakukan.</b></h1>
+                  </div>
+                </div>
+                <?php
+                  } else {
+                while($d = mysqli_fetch_array($data)){
+              ?>
+        <div class="card mt-2">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-3">
+                <img src="img/logo_op/<?php echo $d['nama_produk']; ?>.png" alt="" class="img-fluid">
+              </div>
+              <div class="col-md-9">
+                <b>ID Pembelian : </b> <?php echo $d['id_transaksi']; ?> <br>
+                <b>Pembelian : </b> <?php echo $d['keterangan']; ?> (<?php echo $d['no_tujuan']; ?>)<br>
+                <b>Tanggal</b> : <?php echo $d['tanggal_pembelian'] ?> <br>
+                <b>Metode Pembayaran : </b> <?php echo $d['jenis_pembayaran']; ?> <br>
+                <b>Total : </b> <label>Rp</label> <?php echo $d['harga']; ?> <br>
+                <b>Status</b> : 
+                <?php
+                  if ($d['status'] == "Selesai") {
+                    echo '<span class="badge badge-success">Selesai</span>';
+                  } elseif ($d['status'] == "Diproses") {
+                    echo '<span class="badge badge-info">Diproses</span>';
+                  } elseif ($d['status'] == "Dibatalkan") {
+                    echo '<span class="badge badge-danger">Dibatalkan</span>';
+                  } elseif ($d['status'] == "Belum Dibayar") {
+                    echo '<span class="badge badge-secondary">Belum Dibayar</span>';
+                  } elseif ($d['status'] == "Dibayar") {
+                    echo '<span class="badge badge-info">Dibayar</span>';
+                  }
+                ?>
+              </div>
+            </div>
+          </div>
+        </div>
+        <?php } } ?>
         <!--  -->
       </div>
 
       <div class="tab-pane fade show" id="selesai" role="tabpanel" aria-labelledby="selesai-tab">
          <!--  -->
-         <?php 
+              <?php 
                 $data = mysqli_query($conn,"select * from transaksi where id_pembeli='". $_SESSION['id'] . "' and status='selesai' ORDER BY id_transaksi desc ");
+                $cek = mysqli_num_rows($data);
+                if (empty($cek)) {
+                ?>
+                <div class="row">
+                  <div class="col-md-6">
+                  <img src="img/data_kosong.jpg" class="img-fluid" alt="">
+                  </div>
+                  <div class="col-md-6">
+                    <h1 class="text-center mt-5" style="color:<?php echo $primary_color; ?>;"><b>Belum ada transaksi yang kamu selesaikan.</b></h1>
+                  </div>
+                </div>
+                <?php
+                  } else {
                 while($d = mysqli_fetch_array($data)){
               ?>
         <div class="card mt-2">
@@ -90,7 +180,7 @@ if (!isset($_SESSION['email'])){
             </div>
           </div>
         </div>
-        <?php } ?>
+        <?php } } ?>
         <!--  -->
       </div>
 
@@ -98,9 +188,19 @@ if (!isset($_SESSION['email'])){
        <!--  -->
        <?php 
                 $data = mysqli_query($conn,"select * from transaksi where id_pembeli='". $_SESSION['id'] . "' and status='diproses' ORDER BY id_transaksi desc ");
-                if ($data < 0) {
-                  echo "Tidak Ada Data Yang Ditampilkan";
-                } else {
+                $cek = mysqli_num_rows($data);
+                if (empty($cek)) {
+                ?>
+                <div class="row">
+                  <div class="col-md-6">
+                  <img src="img/data_kosong.jpg" class="img-fluid" alt="">
+                  </div>
+                  <div class="col-md-6">
+                    <h1 class="text-center mt-5" style="color:<?php echo $primary_color; ?>;"><b>Belum ada transaksi yang kamu proses.</b></h1>
+                  </div>
+                </div>
+                <?php
+                  } else {
                 while($d = mysqli_fetch_array($data)){
               ?>
         <div class="card mt-2">
@@ -127,6 +227,19 @@ if (!isset($_SESSION['email'])){
         <!--  -->
         <?php 
                 $data = mysqli_query($conn,"select * from transaksi where id_pembeli='". $_SESSION['id'] . "' and status='dibatalkan' ORDER BY id_transaksi desc ");
+                $cek = mysqli_num_rows($data);
+                if (empty($cek)) {
+                ?>
+                <div class="row">
+                  <div class="col-md-6">
+                  <img src="img/data_kosong.jpg" class="img-fluid" alt="">
+                  </div>
+                  <div class="col-md-6">
+                    <h1 class="text-center mt-5" style="color:<?php echo $primary_color; ?>;"><b>Belum ada transaksi yang kamu batalkan.</b></h1>
+                  </div>
+                </div>
+                <?php
+                  } else {
                 while($d = mysqli_fetch_array($data)){
               ?>
         <div class="card mt-2">
@@ -146,7 +259,7 @@ if (!isset($_SESSION['email'])){
             </div>
           </div>
         </div>
-        <?php } ?>
+        <?php } }?>
         <!--  -->
       </div>
     </div>

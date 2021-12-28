@@ -48,7 +48,7 @@ if (!isset($_SESSION['email'], $_GET['produk'])){
                   <input type="text" class="form-control" id="validationCustom03" name="nama_produk" value="<?php echo $d['nama_produk']; ?>" hidden>
                   <input type="text" class="form-control" id="validationCustom03" name="keterangan" value="<?php echo $d['keterangan']; ?>" hidden>
                   <input type="text" class="form-control" id="validationCustom03" name="harga" value="<?php echo $d['harga']; ?>" hidden>
-                  <input type="text" class="form-control" id="validationCustom03" name="tanggal_pembelian" value="<?php echo date('D, d M Y'); ?>" hidden>
+                  <input type="text" class="form-control" id="validationCustom03" name="tanggal_pembelian" value="<?php echo date('D, d M Y | H:i'); ?>" hidden>
                   <input type="text" class="form-control" id="validationCustom03" name="status" value="<?php echo 'Belum Dibayar'; ?>" hidden>
                     <div class="form-row">
                         <div class="col-md-12 mb-3">

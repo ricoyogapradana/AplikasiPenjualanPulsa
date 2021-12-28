@@ -1,6 +1,7 @@
 <?php
 
 include 'config.php';
+$error = "username/password incorrect";
  
 error_reporting(0);
  
@@ -22,9 +23,9 @@ if (isset($_POST['submit'])) {
         $_SESSION['email'] = $row['email'];
         $_SESSION['first_name'] = $row['first_name'];
         $_SESSION['last_name'] = $row['last_name'];
-        $_SESSION['last_name'] = $row['last_name'];
         $_SESSION['phone'] = $row['phone'];
         $_SESSION['password'] = $row['password'];
+        $_SESSION['saldo'] = $row['saldo'];
         header("Location: index.php");
     } else {
         echo "<script>      
